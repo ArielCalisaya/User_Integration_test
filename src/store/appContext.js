@@ -1,10 +1,10 @@
 import React from 'react';
-// import getState from './flux.js';
+import getState from './flux.js';
 
 export const Context = React.createContext(null);
 
 const injectContext = PassedComponent => {
-    class storeWrapper extends React.Component {
+    class StoreWrapper extends React.Component {
         constructor(props){
             super(props);
 
@@ -27,7 +27,7 @@ const injectContext = PassedComponent => {
             );
         }
     }
-    return storeWrapper;
+    return StoreWrapper;
 }
 
 export default injectContext;

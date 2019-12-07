@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+
 }
 
 .Bg-Home {
@@ -25,8 +26,22 @@ body {
     display: flex;
     align-items: center;
     padding: 50px;
+    color: white
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.col-usuarios
+{
+    padding-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+.user-content
+{
+    background: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
