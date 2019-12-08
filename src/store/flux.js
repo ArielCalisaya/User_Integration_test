@@ -34,7 +34,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const { newUser } = store;
                 newUser[e.target.name] = e.target.value;
                 setStore({ newUser });
-      },
+            },
+            handleChangeEdit(e) {
+              const store = getStore();
+              const { newUser } = store;
+              newUser[e.target.name] = e.target.value;
+              setStore({ newUser });
+              e.preventDefault()
+            },
+            handleSubmitChanges(e, index) {
+                const store = getStore();
+                const { usersList } = store;
+                setStore({ newUser: usersList[index]})
+                e.preventDefault();
+            },
 
             handleSubmit(e){
                 e.preventDefault();

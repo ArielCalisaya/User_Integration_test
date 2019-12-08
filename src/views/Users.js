@@ -1,5 +1,4 @@
 import React from 'react';
-import {Context} from '../store/appContext';
 import TableUsers from '../components/tableUsers';
 import {Button} from 'semantic-ui-react'
 
@@ -14,7 +13,7 @@ class Users extends React.Component {
                 <div id="table-container">
                     <TableUsers />
                 </div>
-                
+
                 <div style={centerButton}>
                 <a href='/'>
                     <Button className="">

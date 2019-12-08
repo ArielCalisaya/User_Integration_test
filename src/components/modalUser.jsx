@@ -2,10 +2,11 @@ import React from 'react';
 import { Button, Header, Image, Modal, Icon } from 'semantic-ui-react';
 
 const ModalUser = (props) => (
-    <Modal trigger={ <Button icon>
-     <Icon
-     name='eye' />
-     </Button>}>
+    <Modal trigger={
+        <Button icon style={iconSize}>
+         <Icon
+         name='eye' />
+         </Button>}>
     <Modal.Header style={center}>{props.item.name} {props.item.lastName}</Modal.Header>
     <Modal.Content image>
       <Image wrapped size='medium' src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
@@ -23,4 +24,8 @@ export default ModalUser;
 
 const center = {
     textAlign: 'center',
+}
+
+const iconSize = {
+    fontSize: '1.1rem',
 }

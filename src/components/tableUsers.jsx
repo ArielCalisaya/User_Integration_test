@@ -1,6 +1,6 @@
 import React from 'react';
 import {Context} from '../store/appContext'
-import { Header, Image, Table, Icon, Button } from 'semantic-ui-react'
+import { Header, Image, Table } from 'semantic-ui-react'
 import ModalUser from './modalUser';
 import ModalEdit from './modalEdit';
 
@@ -34,11 +34,8 @@ const TableUsers = () => (
                                      <div id='buttons'>
 
                                         <ModalUser item={item} />
-                                        <ModalEdit />
-                                         <Button icon style={itemCenter}>
-                                         <Icon
-                                         name='pencil alternate' />
-                                         </Button>
+                                        <ModalEdit itemEd={item} />
+
                                      </div>
                                    </Table.Cell>
 
@@ -60,10 +57,6 @@ const containerTable = {
     padding: '20px',
 }
 
-const itemCenter = {
-    display: 'flex',
-    alignItems: 'center'
-}
 const spaceBetween = {
     display: 'flex',
     justifyContent: 'space-between'
