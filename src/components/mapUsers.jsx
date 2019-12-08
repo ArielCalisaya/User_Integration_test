@@ -21,6 +21,13 @@ const MapUsers = () => (
                                 <br/>
                                 <span>Cumpleaños: {item.birthday}</span>
                                 <br/>
+
+                                <button>
+                                Edit
+                                </button>
+                                <button onClick={() => actions.handleDelete(item)}>
+                                X
+                                </button>
                             </div>
                         )}
                     )

@@ -53,11 +53,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
             },
 
-            handleDelete(index){
+            handleDelete(item){
 
                 const store = getStore();
                 const { usersList } = store;
-                const filterId = usersList.filter( item => item.id !== index );
+                const filterId = usersList.filter( del => del !== item );
                 setStore({ usersList: filterId })
             }
         }
