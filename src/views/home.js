@@ -1,7 +1,7 @@
 import React from 'react';
 import {Context} from '../store/appContext';
-import { Button, Divider, Form } from 'semantic-ui-react';
-
+import { Button, Form } from 'semantic-ui-react';
+import MapUsers from '../components/mapUsers';
 export default class Home extends React.Component {
 
     render(){
@@ -16,53 +16,59 @@ export default class Home extends React.Component {
                                     <span>User Imtegration</span>
                                 </h1>
                             </div>
-                            <div className="separar columnas">
+
                             <div className="formContent">
-                                <Form size='large'>
+                                <Form
+
+                                    size='large'
+                                >
                                   <Form.Group widths='equal'>
                                     <Form.Input
-                                      width={6}
-                                      label='First name'
-                                      placeholder='First name'
+                                        name='gitHub'
+                                        value={store.newUser.gitHub}
+                                        onChange={(e) => actions.handleChange(e)}
+                                        width={6}
+                                        label='GitHub'
+                                        placeholder='ExampleName'
                                     />
                                     <Form.Input
-                                      width={6}
-                                      label='Last name'
-                                      placeholder='Last name'
+                                        name='name'
+                                        value={store.newUser.name}
+                                        onChange={(e) => actions.handleChange(e)}
+                                        width={6}
+                                        label='First name'
+                                        placeholder='First name'
                                     />
-                                  </Form.Group>
-                                  <Button type='submit'>Submit</Button>
-                                  <Divider hidden />
+                                    </Form.Group>
+                                    <Form.Group widths='equal'>
+                                    <Form.Input
+                                        name='lastName'
+                                        value={store.newUser.lastName}
+                                        onChange={(e) => actions.handleChange(e)}
+                                        width={6}
+                                        label='Apellidos'
+                                        placeholder=''
+                                    />
+                                    <Form.Input
+                                        name='birthday'
+                                        value={store.newUser.birthday}
+                                        onChange={(e) => actions.handleChange(e)}
+                                        width={6}
+                                        label='Fecha de nacimiento'
+                                        placeholder=''
+                                    />
+                                    </Form.Group>
+                                  <Button
+                                  onClick={(e) => actions.handleSubmit(e)}
+                                  type='submit'
+                                  >Submit</Button>
+
                                 </Form>
                             </div>
-
-
-
-                            <div className="col-usuarios">
-                                <h1>Usuarios Añadidos</h1>
-                                {
-                                    store.users.map((item) => {
-                                        return(
-                                            <div className="user-content"
-                                            key={item.id}>
-                                                <span>GitHub: {item.gitHub}</span>
-                                                <br/>
-                                                <span>Nombre: {item.name}</span>
-                                                <br/>
-                                                <span>Apellidos: {item.lastName}</span>
-                                                <br/>
-                                                <span>Cumpleaños: {item.birthday}</span>
-                                                <br/>
-                                            </div>
-                                        )}
-                                    )
-                                }
-
-
+                            <div className="mapthis">
+                                <MapUsers />
                             </div>
                             </div>
-
-                        </div>
                     )
                 }
             }

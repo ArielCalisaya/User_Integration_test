@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return{
         store: {
-            users:
+            usersList:
             [
                 {
                     id:1,
@@ -17,24 +17,48 @@ const getState = ({ getStore, getActions, setStore }) => {
                     lastName: 'T3st',
                     birthday: 'august 21',
                 },
-            ]
+            ],
+
+            newUser:
+            {
+                gitHub: '',
+                name: '',
+                lastName: '',
+                birthday: ''
+            }
         },
 
         actions: {
-            hendleChange(e){
+            handleChange(e) {
                 const store = getStore();
-                const { users } = store;
-                users[e.target.name] = e.target.value;
-                setStore({ users });
+                const { newUser } = store;
+                newUser[e.target.name] = e.target.value;
+                setStore({ newUser });
+      },
+
+            handleSubmit(e){
                 e.preventDefault();
+                const store = getStore();
+
+                console.log(store.newUser)
+                setStore({
+                    usersList: store.usersList.concat(store.newUser),
+                    newUser: {
+                        id: 0,
+                        gitHub: '',
+                        name: '',
+                        lastName: '',
+                        birthday: ''
+                    }
+                })
             },
 
             handleDelete(index){
 
                 const store = getStore();
-                const { users } = store;
-                const filterId = users.filter( item => item.id !== index );
-                setStore({ users: filterId })
+                const { usersList } = store;
+                const filterId = usersList.filter( item => item.id !== index );
+                setStore({ usersList: filterId })
             }
         }
 
