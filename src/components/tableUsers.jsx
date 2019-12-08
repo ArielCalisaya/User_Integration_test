@@ -2,6 +2,7 @@ import React from 'react';
 import {Context} from '../store/appContext'
 import { Header, Image, Table, Icon, Button } from 'semantic-ui-react'
 import ModalUser from './modalUser';
+import ModalEdit from './modalEdit';
 
 const TableUsers = () => (
     <Context.Consumer>
@@ -33,7 +34,7 @@ const TableUsers = () => (
                                      <div id='buttons'>
 
                                         <ModalUser item={item} />
-
+                                        <ModalEdit />
                                          <Button icon style={itemCenter}>
                                          <Icon
                                          name='pencil alternate' />
