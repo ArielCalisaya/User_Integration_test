@@ -21,6 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             newUser:
             {
+                id: 3,
                 gitHub: '',
                 name: '',
                 lastName: '',
@@ -34,36 +35,58 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const { newUser } = store;
                 newUser[e.target.name] = e.target.value;
                 setStore({ newUser });
+                e.preventDefault(e)
             },
+
             handleChangeEdit(e) {
               const store = getStore();
+              const name = e.target.name;
+              const value = e.target.value;
+
               const { newUser } = store;
-              newUser[e.target.name] = e.target.value;
-              setStore({ newUser });
+              const editData ={[name] : value };
+              setStore({
+                  newUser: editData
+              })
+
+              console.log()
               e.preventDefault()
+
             },
-            handleSubmitChanges(e, index) {
+            handleSubmitChanges(item) {
                 const store = getStore();
                 const { usersList } = store;
-                setStore({ newUser: usersList[index]})
-                e.preventDefault();
+                const requiredIndex = usersList.id;
+                const temporal = this.state.temporal
+                temporal[requiredIndex] = item;
+                setStore({
+                    usersList: temporal
+                })
+
+                const newUser = store
+                setStore({ newUser})
+                console.log(newUser)
+                item.preventDefault();
             },
 
-            handleSubmit(e){
+
+            async handleSubmit(e){
                 e.preventDefault();
                 const store = getStore();
 
-                console.log(store.newUser)
-                setStore({
+                let id = store.usersList.length + 2
+                await setStore(
+                    {
                     usersList: store.usersList.concat(store.newUser),
                     newUser: {
-                        id: 0,
+                        id: id ,
                         gitHub: '',
                         name: '',
                         lastName: '',
                         birthday: ''
                     }
                 })
+                console.log(store.usersList)
             },
 
             handleDelete(item){

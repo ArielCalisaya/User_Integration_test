@@ -20,9 +20,9 @@ const TableUsers = () => (
 
                    <Table.Body>
                      {
-                         store.usersList.map((item, index) => {
+                         store.usersList.map((item) => {
                              return(
-                                 <Table.Row key={index}>
+                                 <Table.Row key={item.id}>
                                    <Table.Cell style={spaceBetween}>
                                      <Header as='h4' image>
                                        <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' rounded size='mini' />
@@ -34,7 +34,7 @@ const TableUsers = () => (
                                      <div id='buttons'>
 
                                         <ModalUser item={item} />
-                                        <ModalEdit itemEd={item} />
+                                        <ModalEdit  itemEd={item} key={item.id} />
 
                                      </div>
                                    </Table.Cell>

@@ -16,9 +16,12 @@ const injectContext = PassedComponent => {
                 })
             })
         };
-        componentDidMount(){
-
+        async componentDidMount(){
+            const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+            const data = await res.json();
+            console.log(data)
         }
+
         render(){
             return(
                 <Context.Provider value={this.state}>

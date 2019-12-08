@@ -10,10 +10,12 @@ class ModalEdit extends React.Component{
 
 
     render(){
+        const itemEd = this.props.itemEd
         return(
             <Context.Consumer>
             {
                 ({ store, actions }) => {
+
                     return(
                         <div >
                             <Modal trigger={
@@ -23,21 +25,21 @@ class ModalEdit extends React.Component{
                                 </Button>
                             }>
                             <Modal.Header>Hora de Realizar unos Cambios!!!</Modal.Header>
-                            <Modal.Content >
+                            <Modal.Content>
                                 <Form size='large'>
                                   <Form.Group widths='equal'>
                                     <Form.Input
                                         name='gitHub'
-                                        value={this.props.itemEd.gitHub}
-                                        onChange={(e) => actions.handleChange(e)}
+                                        value={itemEd.gitHub}
+                                        onChange={(e) => actions.handleChangeEdit(e)}
                                         width={6}
                                         label='GitHub'
                                         placeholder='ExampleName'
                                     />
                                     <Form.Input
                                         name='name'
-                                        value={store.newUser.name}
-                                        onChange={(e) => actions.handleChange(e)}
+                                        value={itemEd.name}
+                                        onChange={(e) => actions.handleChangeEdit(e)}
                                         width={6}
                                         label='First name'
                                         placeholder='First name'
@@ -46,16 +48,16 @@ class ModalEdit extends React.Component{
                                     <Form.Group widths='equal'>
                                     <Form.Input
                                         name='lastName'
-                                        value={store.newUser.lastName}
-                                        onChange={(e) => actions.handleChange(e)}
+                                        value={itemEd.lastName}
+                                        onChange={(e) => actions.handleChangeEdit(e)}
                                         width={6}
                                         label='Apellidos'
                                         placeholder=''
                                     />
                                     <Form.Input
                                         name='birthday'
-                                        value={store.newUser.birthday}
-                                        onChange={(e) => actions.handleChange(e)}
+                                        value={itemEd.birthday}
+                                        onChange={(e) => actions.handleChangeEdit(e)}
                                         width={6}
                                         label='Fecha de nacimiento'
                                         placeholder=''
@@ -63,7 +65,7 @@ class ModalEdit extends React.Component{
                                     </Form.Group>
                                     <div className="buttons" style={buttonsCenter}>
                                   <Button
-                                  onClick={(e) => actions.handleSubmit(e)}
+                                  onClick={(e) => actions.handleSubmitChanges(e)}
                                   type='submit'
                                   >Submit</Button>
                                     <Button negative>No</Button>
@@ -96,4 +98,4 @@ const buttonsCenter={
 }
 
 
-// TODO: finalizar frontend con edit function y usar api 
+// TODO: finalizar frontend con edit function y usar api
