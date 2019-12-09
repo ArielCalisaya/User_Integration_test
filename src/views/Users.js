@@ -1,6 +1,7 @@
 import React from 'react';
 import TableUsers from '../components/tableUsers';
-import {Button} from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class Users extends React.Component {
     render(){
@@ -15,11 +16,11 @@ class Users extends React.Component {
                 </div>
 
                 <div style={centerButton}>
-                <a href='/'>
+                <Link to='/'>
                     <Button className="">
                         <p className='button-Home'>Volver</p>
                     </Button>
-                </a>
+                </Link>
                 </div>
             </div>
         )

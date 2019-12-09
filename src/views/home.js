@@ -1,5 +1,6 @@
 import React from 'react';
 import {Context} from '../store/appContext';
+import { Link } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import MapUsers from '../components/mapUsers';
 export default class Home extends React.Component {
@@ -67,6 +68,9 @@ export default class Home extends React.Component {
                             </div>
                             <div className="mapthis">
                                 <MapUsers />
+                            </div>
+                            <div id='linkButton'>
+                            <Link to='/users'><Button id="fontSizeMedium">Ir a La lista de Usuarios</Button></Link>
                             </div>
                             </div>
                     )

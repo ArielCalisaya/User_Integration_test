@@ -27,6 +27,15 @@ body {
     display: flex;
     padding: 4px;
 }
+#linkButton
+{
+    text-align: center;
+    padding: 20px;
+}
+#fontSizeMedium
+{
+    font-size: 18px;
+}
 
 #table-container
 {

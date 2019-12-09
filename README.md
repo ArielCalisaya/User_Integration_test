@@ -24,6 +24,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 2.- run app.py command: "python app.py"
 
-servidor iniciado en Port:localhost/5000
+Server Open [http://localhost:5000](http://localhost:5000)
 
 ### `Backend Testeado y funcionando en Postman --> 08-12-2019`
+
+*Por el momento la base de datos se utiliza localmente
