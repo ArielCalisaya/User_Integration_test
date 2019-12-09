@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const getState = ({ getStore, getActions, setStore }) => {
     return{
         store: {
@@ -30,6 +32,18 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
 
         actions: {
+
+            saveNewUser: () => {
+                const store = getStore();
+                axios.post('https://jsonplaceholder.typicode.com/posts',store.usersList)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            },
+
             handleChange(e) {
                 const store = getStore();
                 const { newUser } = store;
@@ -86,11 +100,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                         birthday: ''
                     }
                 })
+
                 console.log(store.usersList)
+                getActions().saveNewUser();
             },
 
             handleDelete(item){
-
                 const store = getStore();
                 const { usersList } = store;
                 const filterId = usersList.filter( del => del !== item );
