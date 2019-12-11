@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             saveNewUser: () => {
                 const store = getStore();
-                axios.post('https://jsonplaceholder.typicode.com/posts',store.usersList)
+                axios.post('https://localhost:5000/create_user', store.usersList)
                 .then(response => {
                     console.log(response)
                 })
