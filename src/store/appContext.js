@@ -16,11 +16,14 @@ const injectContext = PassedComponent => {
                 })
             })
         };
-        async componentDidMount(){
-            const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-            const data = await res.json();
-            console.log(data)
-        }
+        componentDidMount(){
+            fetch('/all_users')
+            .then(response => response.json()
+            .then(data => {
+                console.log(data)
+            })
+        );
+    }
 
         render(){
             return(

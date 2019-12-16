@@ -10,6 +10,7 @@ export default class Home extends React.Component {
             <Context.Consumer>
             {
                 ({store, actions}) => {
+
                     return(
                         <div className="Bg-Home">
                             <div className="text-center">
@@ -61,6 +62,7 @@ export default class Home extends React.Component {
                                     </Form.Group>
                                   <Button
                                   onClick={(e) => actions.handleSubmit(e)}
+
                                   type='submit'
                                   >Submit</Button>
 

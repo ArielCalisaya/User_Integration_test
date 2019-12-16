@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             saveNewUser: () => {
                 const store = getStore();
-                axios.post('https://localhost:5000/create_user', store.usersList)
+                axios.post('/create_user', store.usersList)
                 .then(response => {
                     console.log(response)
                 })
@@ -43,6 +43,18 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log(error)
                 })
             },
+
+// IDEA: INICIAR APP MEDIANTE UN BUTTON @=>/START
+            
+        //     getData(e){
+        //         fetch('/all_users')
+        //         .then(response => response.json()
+        //         .then(data => {
+        //             setStore({ usersList: data })
+        //             console.log(data)
+        //         })
+        //     );
+        // },
 
             handleChange(e) {
                 const store = getStore();
@@ -52,44 +64,44 @@ const getState = ({ getStore, getActions, setStore }) => {
                 e.preventDefault(e)
             },
 
-            handleChangeEdit(e) {
-              const store = getStore();
-              const name = e.target.name;
-              const value = e.target.value;
+            // handleChangeEdit(e) {
+            //   const store = getStore();
+            //   const name = e.target.name;
+            //   const value = e.target.value;
+            //
+            //   const { newUser } = store;
+            //   const editData ={[name] : value };
+            //   setStore({
+            //       newUser: editData
+            //   })
+            //
+            //   console.log()
+            //   e.preventDefault()
+            //
+            // },
+            // handleSubmitChanges(item) {
+            //     const store = getStore();
+            //     const { usersList } = store;
+            //     const requiredIndex = usersList.id;
+            //     const temporal = this.state.temporal
+            //     temporal[requiredIndex] = item;
+            //     setStore({
+            //         usersList: temporal
+            //     })
+            //
+            //     const newUser = store
+            //     setStore({ newUser})
+            //     console.log(newUser)
+            //     item.preventDefault();
+            // },
 
-              const { newUser } = store;
-              const editData ={[name] : value };
-              setStore({
-                  newUser: editData
-              })
 
-              console.log()
-              e.preventDefault()
-
-            },
-            handleSubmitChanges(item) {
-                const store = getStore();
-                const { usersList } = store;
-                const requiredIndex = usersList.id;
-                const temporal = this.state.temporal
-                temporal[requiredIndex] = item;
-                setStore({
-                    usersList: temporal
-                })
-
-                const newUser = store
-                setStore({ newUser})
-                console.log(newUser)
-                item.preventDefault();
-            },
-
-
-            async handleSubmit(e){
+            handleSubmit(e){
                 e.preventDefault();
                 const store = getStore();
 
                 let id = store.usersList.length + 2
-                await setStore(
+                setStore(
                     {
                     usersList: store.usersList.concat(store.newUser),
                     newUser: {
@@ -102,7 +114,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
 
                 console.log(store.usersList)
-                getActions().saveNewUser();
+                getActions();
             },
 
             handleDelete(item){
@@ -112,7 +124,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ usersList: filterId })
             }
         }
-
     }
 }
 export default getState;
