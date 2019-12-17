@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import MapUsers from '../components/mapUsers';
 export default class Home extends React.Component {
+    constructor(){
+        super();
+
+        this.state = {
+            show: false
+        }
+        this.handleHide = this.handleHide.bind(this);
+    }
+    handleHide = () => {
+        if(this.state.show === false){
+            this.setState({ show: true })
+        }
+    }
 
     render(){
         return(
@@ -12,7 +25,18 @@ export default class Home extends React.Component {
                 ({store, actions}) => {
 
                     return(
+
+
                         <div className="Bg-Home">
+                        {
+                            this.state.show === false ?
+
+                            <button
+                            onClick={
+                                () => actions.getData(), ()=> this.handleHide()
+                            }
+                            >Iniciar App</button>
+                            : <div>
                             <div className="text-center">
                                 <h1>
                                     <span>User Imtegration</span>
@@ -74,6 +98,10 @@ export default class Home extends React.Component {
                             <div id='linkButton'>
                             <Link to='/users'><Button id="fontSizeMedium">Ir a La lista de Usuarios</Button></Link>
                             </div>
+                            </div>
+                        }
+
+
                             </div>
                     )
                 }

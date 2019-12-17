@@ -45,16 +45,16 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 
 // IDEA: INICIAR APP MEDIANTE UN BUTTON @=>/START
-            
-        //     getData(e){
-        //         fetch('/all_users')
-        //         .then(response => response.json()
-        //         .then(data => {
-        //             setStore({ usersList: data })
-        //             console.log(data)
-        //         })
-        //     );
-        // },
+
+            getData(e){
+                fetch('/all_users')
+                .then(response => response.json()
+                .then(data => {
+                    setStore({ usersList: data })
+                    console.log(data)
+                })
+            );
+        },
 
             handleChange(e) {
                 const store = getStore();
