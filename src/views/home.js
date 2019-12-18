@@ -26,20 +26,10 @@ export default class Home extends React.Component {
 
                     return(
 
-
                         <div className="Bg-Home">
-                        {
-                            this.state.show === false ?
-
-                            <button
-                            onClick={
-                                () => actions.getData(), ()=> this.handleHide()
-                            }
-                            >Iniciar App</button>
-                            : <div>
                             <div className="text-center">
                                 <h1>
-                                    <span>User Imtegration</span>
+                                    <span>User Integration</span>
                                 </h1>
                             </div>
 
@@ -89,8 +79,8 @@ export default class Home extends React.Component {
 
                                   type='submit'
                                   >Submit</Button>
-
                                 </Form>
+
                             </div>
                             <div className="mapthis">
                                 <MapUsers />
@@ -98,11 +88,7 @@ export default class Home extends React.Component {
                             <div id='linkButton'>
                             <Link to='/users'><Button id="fontSizeMedium">Ir a La lista de Usuarios</Button></Link>
                             </div>
-                            </div>
-                        }
-
-
-                            </div>
+                        </div>
                     )
                 }
             }

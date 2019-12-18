@@ -17,10 +17,12 @@ const injectContext = PassedComponent => {
             })
         };
         componentDidMount(){
+            const usersList = this.state.store
             fetch('/all_users')
             .then(response => response.json()
             .then(data => {
-                console.log(data)
+                this.setState({ usersList: data })
+                console.log(this.state.store.usersList)
             })
         );
     }
