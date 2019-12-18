@@ -44,9 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log(error)
                 })
             },
-
-// IDEA: INICIAR APP MEDIANTE UN BUTTON @=>/START
-
             getData(e){
                 fetch('/all_users')
                 .then(response => response.json()

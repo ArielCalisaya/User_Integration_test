@@ -21,8 +21,7 @@ const injectContext = PassedComponent => {
             fetch('/all_users')
             .then(response => response.json()
             .then(data => {
-                this.setState({ usersList: data })
-                console.log(this.state.store.usersList)
+                console.log('Data-Base:', data)
             })
         );
     }

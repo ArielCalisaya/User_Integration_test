@@ -32,6 +32,11 @@ body {
     text-align: center;
     padding: 20px;
 }
+#button-getData
+{
+    margin: 20px;  
+}
+
 #fontSizeMedium
 {
     font-size: 18px;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 import {Context} from '../store/appContext';
 
 const MapUsers = () => (
@@ -8,6 +9,7 @@ const MapUsers = () => (
             return(
                 <div className="col-usuarios">
                 <h1>Usuarios Añadidos</h1>
+                <Button id="button-getData" onClick={() => actions.getData()}>Apply DATA-BASE</Button>
                 {
                     store.usersList.map((item, index) => {
                         return(
